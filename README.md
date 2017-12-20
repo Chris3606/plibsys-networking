@@ -7,3 +7,5 @@ The project is set to go, including the plibsys conmpiled libraries, for MSVC 20
 3. Compile as per standard for CMake project.
 ## Running
 In this instance, I created a single exe that can function as either the server or a client (you specify).  There should never be more than one server, I'm hardcoding ports here!  Run the generated executable, selecting the first instance to be a server (it will prompt you when you run).  Then run another instance in a seperate terminal, and select client.  You can run client however many times, the server will just keep serving them.  The server is an infinite loop so must terminate via ctrl-c.
+### Notes
+- The plibsys documentation on networking says that the client side should call bind().  In this example I do not -- this was intentional.  Calling bind on the client side is actually rarely ever necessary.  Typically only ever done if you care about the port the client side binds to (which rarely ever happens -- typically on networks where only certain ports are open, etc.)
