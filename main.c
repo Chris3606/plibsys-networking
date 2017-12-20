@@ -3,9 +3,9 @@
 #include <string.h>
 #include <plibsys.h>
 #include <psocket.h>
+#define MAX_MESSAGE_LENGTH 1024
+#define SERVER_PORT 5432
 
-const int MAX_MESSAGE_LENGTH = 1024;
-const int SERVER_PORT = 5432;
 
 int do_server_things()
 {
@@ -107,7 +107,7 @@ int do_client_things()
 	pssize sizeOfRecvData = p_socket_receive(sock, buffer, sizeof(buffer) - 1, NULL);
 	buffer[sizeOfRecvData] = '\0'; // Set null character 1 after message
 
-	printf("We received %s", buffer);
+	printf("We received %s\n", buffer);
 
 	// Cleanup
 	p_socket_address_free(addr);
